@@ -20,6 +20,7 @@
             </thead>
             <tbody>
               @foreach($mahasiswa as $mhs)
+              @foreach ($mahasiswa as $mhs)
               <tr>
                 <th scope="row">{{$mhs->id_mahasiswa}}</th>
                 <td>{{$mhs->nama}}</td>
@@ -30,6 +31,11 @@
                 <td>
                     <a href="{{route('edit', $mhs->id_mahasiswa)}}"><button type="button" class="btn btn-primary">Update</button></a>
                     <button type="button" class="btn btn-danger">Hapus</button>
+                <td>{{$mhs->alamat}}</td>
+                <td>{{$mhs->ktm->nomor_identitas}}</td>
+                <td>
+                  <button type="button" class="btn btn-primary">Update</button>
+                  <button type="button" class="btn btn-danger">Hapus</button>
                 </td>
               </tr>
               @endforeach
