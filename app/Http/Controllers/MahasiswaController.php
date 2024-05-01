@@ -12,7 +12,10 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        return view('mahasiswa');
+        $mahasiswa = Mahasiswa::all(); 
+        return view ('mahasiswa', [
+            'mahasiswa' => $mahasiswa
+        ]);
     }
 
     /**
@@ -88,5 +91,12 @@ class MahasiswaController extends Controller
     public function destroy(string $id)
     {
         
+    }
+
+    public function delete($id_mahasiswa)
+    {
+        $mahasiswa = Mahasiswa::find($id_mahasiswa);
+        $mahasiswa->delete();
+        return redirect()->route('index')->with('success', 'Post deleted successfully');
     }
 }
